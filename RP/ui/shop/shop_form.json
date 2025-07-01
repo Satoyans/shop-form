@@ -1,0 +1,952 @@
+{
+	"namespace": "shop_form",
+	"main_panel": {
+		"type": "panel",
+		"size": ["100%", "100%"],
+		"controls": [
+			{
+				"body": {
+					"type": "stack_panel",
+					"orientation": "horizontal",
+					"size": ["100%", "100%"],
+					"$index_diff": "(4 - 1)", //ページ用のボタン数-1
+
+					"$left_tab_size": ["100px + 32px + 10px", "100%"], //x:text + icon + scroll,
+					"$right_stack_panel_size": ["100% - 100px - 32px - 10px", "100%"],
+
+					"controls": [
+						{
+							//左のスクロール
+							"item_scrolling_panel@common.scrolling_panel": {
+								"type": "stack_panel",
+								"orientation": "vertical",
+								"anchor_to": "top_left",
+								"anchor_from": "top_left",
+								"$show_background": false,
+								"size": "$left_tab_size",
+								"$scrolling_content": "shop_form.item_stack_panel", //アイテムのスタックパネル
+								"$scroll_size": [5, "100% - 4px"],
+								"$scrolling_pane_size": ["100% - 4px", "100% - 2px"],
+								"$scrolling_pane_offset": [2, 0],
+								"$scroll_bar_right_padding_size": [0, 0]
+							}
+						},
+						{
+							//右
+							"right_stack_panel": {
+								"type": "stack_panel",
+								"orientation": "vertical",
+								"size": "$right_stack_panel_size",
+								"controls": [
+									{
+										//右のスクロール
+										"descriptions_scrolling_panel@common.scrolling_panel": {
+											"type": "stack_panel",
+											"orientation": "vertical",
+											"anchor_to": "top_left",
+											"anchor_from": "top_left",
+											"$show_background": false,
+											"size": ["100%", "90%"],
+											"$scrolling_content": "shop_form.item_descriptions", //アイテムの説明のスタックパネル
+											"$scroll_size": [5, "100% - 4px"],
+											"$scrolling_pane_size": ["100% - 4px", "100% - 2px"],
+											"$scrolling_pane_offset": [2, 0],
+											"$scroll_bar_right_padding_size": [0, 0]
+										}
+									},
+									{
+										//購入ボタン
+										"buy_buttons@shop_form.buy_buttons": {
+											"size": ["100%", "10%"]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			{
+				//下のぺージ切り替えボタン
+				"footer_stack_panel@shop_form.footer_stack_panel": {}
+			}
+		]
+	},
+	/*
+	左のスタックパネル
+	*/
+	"item_stack_panel": {
+		"type": "stack_panel",
+		"collection_name": "form_buttons",
+		"controls": [
+			{
+				"custom_toggle_panel1@custom_toggle.custom_toggle_panel": {
+					"$index": 1,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$text": "",
+					"$name": "('shop_item' + $index)",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel2@custom_toggle.custom_toggle_panel": {
+					"$index": 2,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel3@custom_toggle.custom_toggle_panel": {
+					"$index": 3,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel4@custom_toggle.custom_toggle_panel": {
+					"$index": 4,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel5@custom_toggle.custom_toggle_panel": {
+					"$index": 5,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel6@custom_toggle.custom_toggle_panel": {
+					"$index": 6,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel7@custom_toggle.custom_toggle_panel": {
+					"$index": 7,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel8@custom_toggle.custom_toggle_panel": {
+					"$index": 8,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel9@custom_toggle.custom_toggle_panel": {
+					"$index": 9,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel10@custom_toggle.custom_toggle_panel": {
+					"$index": 10,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel11@custom_toggle.custom_toggle_panel": {
+					"$index": 11,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel12@custom_toggle.custom_toggle_panel": {
+					"$index": 12,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel13@custom_toggle.custom_toggle_panel": {
+					"$index": 13,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel14@custom_toggle.custom_toggle_panel": {
+					"$index": 14,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel15@custom_toggle.custom_toggle_panel": {
+					"$index": 15,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel16@custom_toggle.custom_toggle_panel": {
+					"$index": 16,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel17@custom_toggle.custom_toggle_panel": {
+					"$index": 17,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel18@custom_toggle.custom_toggle_panel": {
+					"$index": 18,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel19@custom_toggle.custom_toggle_panel": {
+					"$index": 19,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			},
+			{
+				"custom_toggle_panel20@custom_toggle.custom_toggle_panel": {
+					"$index": 20,
+					"collection_index": "($index_diff + $index)",
+					"$toggle_name": "shop_items",
+					"$name": "('shop_item' + $index)",
+					"$text": "",
+					"$padding": [132, 32],
+					"$toggle_size": [132, 32]
+				}
+			}
+		]
+	},
+	/*
+	右のスタックパネル
+	*/
+	"item_descriptions": {
+		"type": "stack_panel",
+		"collection_name": "form_buttons",
+		"size": ["100%", "100%cm"],
+		"controls": [
+			{
+				"item_description_panel1@shop_form.item_description_panel": {
+					"$index": 1,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel2@shop_form.item_description_panel": {
+					"$index": 2,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel3@shop_form.item_description_panel": {
+					"$index": 3,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel4@shop_form.item_description_panel": {
+					"$index": 4,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel5@shop_form.item_description_panel": {
+					"$index": 5,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel6@shop_form.item_description_panel": {
+					"$index": 6,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel7@shop_form.item_description_panel": {
+					"$index": 7,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel8@shop_form.item_description_panel": {
+					"$index": 8,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel9@shop_form.item_description_panel": {
+					"$index": 9,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel10@shop_form.item_description_panel": {
+					"$index": 10,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel11@shop_form.item_description_panel": {
+					"$index": 11,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel12@shop_form.item_description_panel": {
+					"$index": 12,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel13@shop_form.item_description_panel": {
+					"$index": 13,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel14@shop_form.item_description_panel": {
+					"$index": 14,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel15@shop_form.item_description_panel": {
+					"$index": 15,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel16@shop_form.item_description_panel": {
+					"$index": 16,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel17@shop_form.item_description_panel": {
+					"$index": 17,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel18@shop_form.item_description_panel": {
+					"$index": 18,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel19@shop_form.item_description_panel": {
+					"$index": 19,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"item_description_panel20@shop_form.item_description_panel": {
+					"$index": 20,
+					"collection_index": "($index_diff + $index)"
+				}
+			}
+		]
+	},
+	/*
+	右のパネル
+	*/
+	"item_description_panel": {
+		"type": "panel",
+		"size": ["100%", "100%c"],
+		"allow_clipping": true,
+		"clips_children": true,
+		"controls": [
+			{
+				"stack_panel": {
+					"type": "stack_panel",
+					"size": ["100%", "100%c"],
+					"controls": [
+						{
+							"item_icon_panel": {
+								"type": "stack_panel",
+								"orientation": "horizontal",
+								"size": ["100%", 42],
+								"controls": [
+									{ "padding": { "type": "panel", "size": ["50% - 21px", 42] } },
+									{
+										"item_icon@shop_form.custom_item_icon": {
+											"size": [42, 42]
+										}
+									}
+								]
+							}
+						},
+						{
+							"item_name": {
+								"type": "label",
+								"text": "#text",
+								"layer": 32,
+								"font_scale_factor": 1.25,
+								"text_alignment": "center",
+								"size": ["100%", 16],
+								"anchor_from": "center",
+								"anchor_to": "center",
+								"bindings": [
+									{
+										"binding_name": "#form_button_text",
+										"binding_name_override": "#button_text",
+										"binding_type": "collection",
+										"binding_collection_name": "form_buttons"
+									},
+									{
+										"binding_type": "view",
+										"source_property_name": "(('§z' + '%.100s' * #button_text) - '')",
+										"target_property_name": "#text"
+									}
+								]
+							}
+						},
+						{
+							"item_money": {
+								"type": "label",
+								"text": "#text",
+								"layer": 32,
+								"text_alignment": "right",
+								"size": ["100%", 10],
+								"anchor_from": "center",
+								"anchor_to": "center",
+								"bindings": [
+									{
+										"binding_name": "#form_button_text",
+										"binding_name_override": "#button_text",
+										"binding_type": "collection",
+										"binding_collection_name": "form_buttons"
+									},
+									{
+										"binding_type": "view",
+										"source_property_name": "('§6' + ('§z' + ('§z' + '%.200s' * #button_text) - ('§z' + '%.100s' * #button_text)) - '')",
+										"target_property_name": "#text"
+									}
+								]
+							}
+						},
+						{ "padding": { "type": "panel", "size": ["100%", 10] } },
+						{
+							"item_description": {
+								"type": "label",
+								"text": "#text",
+								"size": ["100%", "default"],
+								"layer": 32,
+								"anchor_from": "center",
+								"anchor_to": "center",
+								"bindings": [
+									{
+										"binding_name": "#form_button_text",
+										"binding_name_override": "#button_text",
+										"binding_type": "collection",
+										"binding_collection_name": "form_buttons"
+									},
+									{
+										"binding_type": "view",
+										"source_property_name": "(('§z' + ('§z' + '%.1200s' * #button_text) - ('§z' + '%.200s' * #button_text)) - '')",
+										"target_property_name": "#text"
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
+		"bindings": [
+			{
+				"binding_type": "view",
+				"source_control_name": "('shop_item' + $index)",
+				"source_property_name": "#toggle_state",
+				"target_property_name": "#visible"
+			}
+		]
+	},
+	// 購入ボタン
+	//トグルのステートとindexを使って、表示/非表示を切り替えることで選択中のアイテムが何だったか判別する
+	"buy_buttons": {
+		"type": "stack_panel",
+		"collection_name": "form_buttons",
+		"controls": [
+			{
+				"buy_button1@shop_form.buy_button": {
+					"$index": 1,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button2@shop_form.buy_button": {
+					"$index": 2,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button3@shop_form.buy_button": {
+					"$index": 3,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button4@shop_form.buy_button": {
+					"$index": 4,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button5@shop_form.buy_button": {
+					"$index": 5,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button6@shop_form.buy_button": {
+					"$index": 6,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button7@shop_form.buy_button": {
+					"$index": 7,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button8@shop_form.buy_button": {
+					"$index": 8,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button9@shop_form.buy_button": {
+					"$index": 9,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button10@shop_form.buy_button": {
+					"$index": 10,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button11@shop_form.buy_button": {
+					"$index": 11,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button12@shop_form.buy_button": {
+					"$index": 12,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button13@shop_form.buy_button": {
+					"$index": 13,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button14@shop_form.buy_button": {
+					"$index": 14,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button15@shop_form.buy_button": {
+					"$index": 15,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button16@shop_form.buy_button": {
+					"$index": 16,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button17@shop_form.buy_button": {
+					"$index": 17,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button18@shop_form.buy_button": {
+					"$index": 18,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button19@shop_form.buy_button": {
+					"$index": 19,
+					"collection_index": "($index_diff + $index)"
+				}
+			},
+			{
+				"buy_button20@shop_form.buy_button": {
+					"$index": 20,
+					"collection_index": "($index_diff + $index)"
+				}
+			}
+		]
+	},
+	"buy_button@common_buttons.light_text_button": {
+		"$pressed_button_name": "button.form_button_click",
+		"anchor_from": "top_left",
+		"anchor_to": "top_left",
+		"size": ["100% - 5px", "100% - 5px"],
+		"$button_text": "購入",
+		"$button_text_binding_type": "none",
+		// "$button_text_grid_collection_name": "form_buttons",
+		"$button_text_max_size": ["100%", 20],
+		"bindings": [
+			{
+				"binding_type": "collection_details",
+				"binding_collection_name": "form_buttons"
+			},
+			{
+				"binding_type": "view",
+				"source_control_name": "('shop_item' + $index)",
+				"source_property_name": "#toggle_state",
+				"target_property_name": "#visible"
+			}
+		]
+	},
+	//フッター
+	"footer_stack_panel": {
+		"size": ["100%", 20],
+		"anchor_from": "bottom_middle",
+		"anchor_to": "top_middle",
+		"type": "stack_panel",
+		"orientation": "vertical",
+		"$button_size": "fill",
+		"$padding": ["15%", "default"],
+		"controls": [
+			{
+				"padding": { "type": "panel", "size": ["100%", "20%"] }
+			},
+			{
+				"buttons": {
+					"type": "stack_panel",
+					"orientation": "horizontal",
+					"size": ["100%", "80%"],
+					"controls": [
+						{
+							"page_buttons": {
+								"type": "stack_panel",
+								"orientation": "horizontal",
+								"size": ["100%", "default"],
+								"anchor_from": "bottom",
+								"anchor_to": "bottom",
+								"collection_name": "form_buttons",
+								"controls": [
+									{
+										"|<<@shop_form.custom_button": {
+											"collection_index": 0,
+											"$button_mode": "back"
+										}
+									},
+									{
+										"<@shop_form.custom_button": {
+											"collection_index": 1,
+											"$button_mode": "back"
+										}
+									},
+									{ "padding": { "type": "panel", "size": ["2%", "default"] } },
+									{
+										"body_text_panel": {
+											"type": "panel",
+											"size": ["36%", 18],
+											"layer": 1,
+											"controls": [
+												{
+													"body_text_panel_content": {
+														"type": "panel",
+														"size": ["100%", 17],
+														"anchor_from": "bottom_middle",
+														"anchor_to": "bottom_middle",
+														"controls": [
+															{
+																"body_text_bg": {
+																	"type": "image",
+																	"size": ["100%", "100%"],
+																	"texture": "textures/ui/page_button_normal",
+																	"keep_ratio": false
+																}
+															},
+															{
+																"body_text": {
+																	"type": "label",
+																	"text": "#text",
+																	"text_alignment": "center",
+																	"color": [0, 0, 0],
+																	"bindings": [
+																		{
+																			"binding_type": "view",
+																			"source_property_name": "('§z' + #form_text - '')",
+																			"target_property_name": "#text"
+																		}
+																	]
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									},
+									{ "padding": { "type": "panel", "size": ["2%", "default"] } },
+									{
+										">@shop_form.custom_button": {
+											"collection_index": 2,
+											"$button_mode": "forward"
+										}
+									},
+									{
+										">>|@shop_form.custom_button": {
+											"collection_index": 3,
+											"$button_mode": "forward"
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		]
+	},
+	//	ぺージ切り替え用のボタン
+	"custom_button": {
+		"type": "panel",
+		"$padding|default": [170, 40],
+		"size": "$padding",
+		"controls": [
+			{
+				"button": {
+					"$button_size|default": [170, 30],
+					"$icon_size|default": [25, 25],
+					// "type": "panel",
+					"type": "label",
+					"text": "#text",
+					"size": ["100%", "100%"],
+
+					// button textures
+					"$default_button_texture": "textures/ui/page_button_normal",
+					"$hover_button_texture": "textures/ui/page_button_hover",
+					"$pressed_button_texture": "textures/ui/page_button_pressed",
+					"$locked_button_texture": "textures/ui/page_button_locked",
+
+					"$border_visible": false, //border visibility
+
+					"controls": [
+						{
+							"main_ui": {
+								"type": "panel",
+								"size": "$button_size",
+								"controls": [
+									{
+										"form_button@common_buttons.light_text_button": {
+											"$pressed_button_name": "button.form_button_click",
+											"anchor_from": "top_left",
+											"anchor_to": "top_left",
+											"size": "$button_size",
+											"$button_text": "#null",
+											"$button_text_binding_type": "collection",
+											"$button_text_grid_collection_name": "form_buttons",
+											"$button_text_max_size": ["100%", 20],
+											"bindings": [
+												{
+													"binding_type": "collection_details",
+													"binding_collection_name": "form_buttons"
+												}
+											]
+										}
+									},
+									{
+										"text": {
+											"type": "label",
+											"text": "#form_button_text",
+											"layer": 32,
+											"color": [0, 0, 0],
+											"anchor_from": "center",
+											"anchor_to": "center",
+											"font_size": "large",
+											"font_scale_factor": 0.5,
+											"offset": [0, -2],
+											"bindings": [
+												{
+													"binding_name": "#form_button_text",
+													"binding_type": "collection",
+													"binding_collection_name": "form_buttons"
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					],
+					"bindings": [
+						{
+							"binding_type": "view",
+							"source_property_name": "('0' + ('%.11s' * ('' + #form_text )) - '')",
+							"target_property_name": "#now_page"
+						},
+						{
+							"binding_type": "view",
+							"source_property_name": "('0' + ('' + '%.24s' * #form_text - '%.14s' * #form_text ) - '')",
+							"target_property_name": "#last_page"
+						},
+						{
+							"binding_type": "view",
+							"source_property_name": "((($button_mode = 'back') and not (#now_page = 1)) or (($button_mode = 'forward') and not (#now_page = #last_page)))",
+							"target_property_name": "#visible"
+						}
+					]
+				}
+			}
+		]
+	},
+
+	"custom_item_icon": {
+		"type": "panel",
+		"layer": 32,
+		"size": [42, 42],
+		"anchor_from": "center",
+		"anchor_to": "center",
+		"controls": [
+			{
+				"inventory_item_renderer": {
+					"type": "custom",
+					"renderer": "inventory_item_renderer",
+					"bindings": [
+						{
+							"binding_name": "#form_button_texture",
+							"binding_name_override": "#temp",
+							"binding_type": "collection",
+							"binding_collection_name": "form_buttons"
+						},
+						{
+							"binding_type": "view",
+							"source_property_name": "(#temp - '§a§u§x')",
+							"target_property_name": "#item_id_aux"
+						},
+						{
+							"binding_type": "view",
+							"source_property_name": "((#temp / '§a§u§x') = 1)",
+							"target_property_name": "#visible"
+						}
+					]
+				}
+			},
+			{
+				"image": {
+					"type": "image",
+					"bindings": [
+						{
+							"binding_name": "#form_button_texture",
+							"binding_name_override": "#temp",
+							"binding_type": "collection",
+							"binding_collection_name": "form_buttons"
+						},
+						{
+							"binding_type": "view",
+							"source_property_name": "(#temp - '§i§m§g')",
+							"target_property_name": "#texture"
+						},
+						{
+							"binding_type": "view",
+							"source_property_name": "((#temp / '§i§m§g') = 1)",
+							"target_property_name": "#visible"
+						}
+					]
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "SHOP UI Remake - BP",
+		"description": "discord:@satoyan_\n2025/07/01",
+		"uuid": "f3c7d401-4e6d-4c34-8415-da07dedba3d1",
+		"min_engine_version": [1, 21, 90],
+		"version": [1, 0, 0]
+	},
+	"modules": [
+		{
+			"type": "script",
+			"language": "javascript",
+			"entry": "scripts/main.js",
+			"description": "",
+			"uuid": "de99dce9-46b6-4147-b2e6-d1f0c198e0f9",
+			"version": [1, 0, 0]
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "2.1.0-beta"
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "2.1.0-beta"
+		}
+	]
+}

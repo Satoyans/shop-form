@@ -1,0 +1,140 @@
+{
+	"namespace": "custom_toggle",
+	"custom_toggle_panel": {
+		"type": "panel",
+		"$toggle_size|default": [32, 32],
+		"$padding|default": [32, 32],
+		"$index|default": 1,
+		"$name|default": "view_toggle",
+		"$text|default": "Toggle",
+		"size": "$padding",
+
+		"controls": [
+			{
+				"custom_toggle@common_toggles.light_text_toggle": {
+					"$default_texture|default": "textures/ui/tab_not_selected", //un-toggled toggle normal
+					"$hover_texture|default": "textures/ui/tab_selected", //toggled toggle normal
+
+					"$pressed_texture|default": "textures/ui/tab_hover", //un-toggled toggle hover
+					"$pressed_no_hover_texture|default": "textures/ui/tab_selected", //toggled toggle hover
+
+					"$hover_checked_text_color": [0.8, 0.8, 0.8], //toggled toggle hover text color
+					"$default_checked_text_color": [0.8, 0.8, 0.8], //toggled toggle normal text color
+					"$hover_text_color": [0.7, 0.7, 0.7], //un-toggled toggle hover text color
+					"$default_text_color": [0.6, 0.6, 0.6], //un-toggled toggle normal text color
+
+					"$default_border_visible": false, //border visibility
+					"$hover_border_visible": false, //border hover visibility
+
+					"$toggle_name|default": "our_toggle",
+					"$button_text": "$text",
+					"size": "$toggle_size",
+					"$toggle_view_binding_name": "$name",
+					"$radio_toggle_group": true,
+					"$toggle_group_default_selected": 1,
+					"$toggle_group_forced_index": "$index",
+					"anchor_from": "center",
+					"anchor_to": "center"
+				}
+			},
+			// トグルの内容
+			{
+				"toggle_content1": {
+					"type": "stack_panel",
+					"orientation": "vertical",
+					"layer": 20,
+					"controls": [
+						{ "padding_top": { "type": "panel", "size": ["default", 2] } }, //ないと上にはみ出る
+						{
+							"toggle_content2": {
+								"type": "stack_panel",
+								"orientation": "horizontal",
+								"controls": [
+									{ "padding_left": { "type": "panel", "size": [2, "default"] } }, //ないと左にはみ出る
+									{
+										"item_icon@shop_form.custom_item_icon": {
+											"size": [28, 28]
+										}
+									},
+									{
+										"toggle_content3": {
+											"type": "stack_panel",
+											"orientation": "vertical",
+											"controls": [
+												{ "padding_left": { "type": "panel", "size": ["default", 3] } },
+												{
+													"item_name": {
+														"type": "label",
+														"text": "#text",
+														"size": [100, 12],
+														"anchor_from": "left_middle",
+														"anchor_to": "left_middle",
+														"allow_clipping": true,
+														"font_scale_factor": 0.8,
+														"color": [0, 0, 0],
+														"bindings": [
+															{
+																"binding_name": "#form_button_text",
+																"binding_name_override": "#button_text",
+																"binding_type": "collection",
+																"binding_collection_name": "form_buttons"
+															},
+															{
+																"binding_type": "view",
+																"source_property_name": "(('§z' + '%.100s' * #button_text) - '')",
+																"target_property_name": "#text"
+															}
+														]
+													}
+												},
+												{
+													"item_price": {
+														"type": "label",
+														"text": "#text",
+														"size": [95, 12],
+														"anchor_from": "center",
+														"anchor_to": "center",
+														"allow_clipping": true,
+														"shadow": true,
+														"text_alignment": "right",
+														"color": [1, 1, 1],
+														"bindings": [
+															{
+																"binding_name": "#form_button_text",
+																"binding_name_override": "#button_text",
+																"binding_type": "collection",
+																"binding_collection_name": "form_buttons"
+															},
+															{
+																"binding_type": "view",
+																"source_property_name": "('§6' + ('§z' + ('§z' + '%.200s' * #button_text) - ('§z' + '%.100s' * #button_text)) - '')",
+																"target_property_name": "#text"
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
+		"bindings": [
+			{
+				"binding_name": "#form_button_text",
+				"binding_name_override": "#button_text",
+				"binding_type": "collection",
+				"binding_collection_name": "form_buttons"
+			},
+			{
+				"binding_type": "view",
+				"source_property_name": "(not (#button_text = ''))",
+				"target_property_name": "#visible"
+			}
+		]
+	}
+}
