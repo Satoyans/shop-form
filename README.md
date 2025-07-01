@@ -1,7 +1,7 @@
 # Shop Form
 
 ショップ風のフォームを作成するBP/RP
-![shop form image](shop_form_image.png.png)
+![shop form image](shop_form_image.png)
 
 ---
 
